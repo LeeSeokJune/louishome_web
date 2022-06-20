@@ -1,5 +1,6 @@
 class ImagesPath {
-  static String get verticalLogo => 'assets/logo/louishome_horizontal_logo.png';
+  static String get horizontalLogo =>
+      'assets/logo/louishome_horizontal_logo.png';
 }
 
 class IconPath {
@@ -13,4 +14,5 @@ class IconPath {
   static String get search => 'assets/icon/search_icon.png';
   static String get star => 'assets/icon/star.png';
   static String get shopping_basket => 'assets/icon/shopping_basket.png';
+  static String get petfood_group => 'assets/icon/petfood_group.png';
 }

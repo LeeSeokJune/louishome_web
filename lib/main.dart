@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:louishome_web/components/route.dart';
+import 'package:louishome_web/screens/basicFrame.dart';
+
+import 'components/initialBindings.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,8 +15,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       theme: ThemeData(fontFamily: 'Suit'),
-      initialRoute: '/',
-      getPages: pageList,
+      initialBinding: InitialBindings(),
+      home: BasicFrame(),
     );
   }
 }

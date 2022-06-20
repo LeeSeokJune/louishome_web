@@ -2,18 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:louishome_web/components/constants.dart';
 import 'package:louishome_web/components/imagesPath.dart';
+import '../controller/pages_controller.dart';
+import 'curation/curation_screen.dart';
+import 'home/home_screen.dart';
 
 class BasicFrame extends StatelessWidget {
   BasicFrame({Key? key}) : super(key: key);
+  var pagesController = Get.put(PagesController());
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
+    return Scaffold(
+      body: ListView(
         children: [
           topbar(context),
-          SizedBox(
-            height: 200,
+          Container(
+            height: context.height,
+            child: Obx(
+              () => IndexedStack(
+                index: pagesController.pageIndex.value,
+                children: [
+                  HomeScreen(),
+                  CurationScreen(),
+                ],
+              ),
+            ),
           ),
           bottomBar(context),
         ],
@@ -43,22 +56,30 @@ class BasicFrame extends StatelessWidget {
               Positioned(
                 left: 472,
                 top: 11,
-                child: Text(
-                  '맞춤형 사료추천, 내 반려동물에게 딱 맞는 사료를 찾아보세요',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
+                child: InkWell(
+                    child: Text(
+                      '맞춤형 사료추천, 내 반려동물에게 딱 맞는 사료를 찾아보세요',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    onTap: () {
+                      pagesController.changePage(PageName.CURATION.index);
+                    }),
               ),
               Positioned(
                 left: 812,
                 top: 11,
-                child: Image.asset(
-                  IconPath.rightArrow,
-                  width: 17,
-                  height: 17,
-                ),
+                child: InkWell(
+                    child: Image.asset(
+                      IconPath.rightArrow,
+                      width: 17,
+                      height: 17,
+                    ),
+                    onTap: () {
+                      pagesController.changePage(PageName.CURATION.index);
+                    }),
               ),
             ],
           ),
@@ -98,6 +119,15 @@ class BasicFrame extends StatelessWidget {
         width: centerWidth,
         child: Stack(
           children: [
+            Positioned(
+                left: 0,
+                top: 13,
+                child: InkWell(
+                  child: Text('뒤로가기'),
+                  onTap: () {
+                    pagesController.willPopAction();
+                  },
+                )),
             Positioned(left: 946, top: 13, child: _greyTextButton('NOTICE')),
             Positioned(left: 1002, top: 22, child: _rod(0)),
             Positioned(left: 1015, top: 13, child: _greyTextButton('장바구니')),
@@ -140,10 +170,15 @@ class BasicFrame extends StatelessWidget {
             Positioned(
               left: 0,
               top: 60,
-              child: Image.asset(
-                ImagesPath.verticalLogo,
-                color: louisColor,
-                height: 56,
+              child: InkWell(
+                child: Image.asset(
+                  ImagesPath.horizontalLogo,
+                  color: louisColor,
+                  height: 56,
+                ),
+                onTap: () {
+                  pagesController.changePage(PageName.HOME.index);
+                },
               ),
             ),
             Positioned(
@@ -257,7 +292,7 @@ class BasicFrame extends StatelessWidget {
         Positioned(
           left: 0,
           top: 46,
-          child: Image.asset(ImagesPath.verticalLogo,
+          child: Image.asset(ImagesPath.horizontalLogo,
               height: 38, color: Colors.white),
         ),
         Positioned(left: 998, top: 46, child: _whiteText('이용약관')),
