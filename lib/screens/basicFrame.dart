@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:louishome_web/components/constants.dart';
 import 'package:louishome_web/components/imagesPath.dart';
+import 'package:louishome_web/screens/curation/curation1_screen.dart';
 import '../controller/pages_controller.dart';
 import 'curation/curation_screen.dart';
 import 'home/home_screen.dart';
@@ -9,21 +10,22 @@ import 'home/home_screen.dart';
 class BasicFrame extends StatelessWidget {
   BasicFrame({Key? key}) : super(key: key);
   var pagesController = Get.put(PagesController());
-
+  final homeKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
         children: [
           topbar(context),
-          Container(
-            height: context.height,
-            child: Obx(
-              () => IndexedStack(
+          Obx(
+            () => Container(
+              height: widgetHeight[pagesController.pageIndex.value],
+              child: IndexedStack(
                 index: pagesController.pageIndex.value,
                 children: [
                   HomeScreen(),
                   CurationScreen(),
+                  Curation1Screen(),
                 ],
               ),
             ),
