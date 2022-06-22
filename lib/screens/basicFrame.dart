@@ -130,25 +130,39 @@ class BasicFrame extends StatelessWidget {
                     pagesController.willPopAction();
                   },
                 )),
-            Positioned(left: 946, top: 13, child: _greyTextButton('NOTICE')),
-            Positioned(left: 1002, top: 22, child: _rod(0)),
-            Positioned(left: 1015, top: 13, child: _greyTextButton('장바구니')),
-            Positioned(left: 1068, top: 22, child: _rod(0)),
-            Positioned(left: 1081, top: 13, child: _greyTextButton('로그인')),
-            Positioned(left: 1124, top: 22, child: _rod(0)),
-            Positioned(left: 1137, top: 13, child: _greyTextButton('회원가입')),
-            Positioned(
-              left: 1129,
-              top: 33,
-              child: Image.asset(
-                IconPath.addPoint,
-                width: 61,
-                height: 26,
-              ),
-            ),
-            Positioned(
-              left: 1137,
-              top: 41,
+            Positioned(left: 1056, top: 13, child: _greyTextButton('NOTICE')),
+            Positioned(left: 1112, top: 22, child: _rod(0)),
+            Positioned(left: 1125, top: 13, child: _greyTextButton('장바구니')),
+            Positioned(left: 1178, top: 22, child: _rod(0)),
+            Positioned(left: 1191, top: 13, child: _greyTextButton('로그인')),
+            Positioned(left: 1234, top: 22, child: _rod(0)),
+            Positioned(left: 1247, top: 13, child: _greyTextButton('회원가입')),
+            _registerPoint(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _registerPoint() {
+    return Stack(
+      children: [
+        Positioned(
+          left: 1239,
+          top: 33,
+          child: Image.asset(
+            IconPath.addPoint,
+            width: 61,
+            height: 26,
+          ),
+        ),
+        Positioned(
+          left: 1239,
+          top: 38,
+          child: Container(
+            width: 61,
+            height: 21,
+            child: Center(
               child: Text(
                 '+ 1000P',
                 style: TextStyle(
@@ -157,9 +171,9 @@ class BasicFrame extends StatelessWidget {
                 ),
               ),
             ),
-          ],
+          ),
         ),
-      ),
+      ],
     );
   }
 
@@ -170,13 +184,14 @@ class BasicFrame extends StatelessWidget {
         child: Stack(
           children: [
             Positioned(
-              left: 0,
+              left: -14,
               top: 60,
               child: InkWell(
                 child: Image.asset(
                   ImagesPath.horizontalLogo,
                   color: louisColor,
                   height: 56,
+                  width: 219,
                 ),
                 onTap: () {
                   pagesController.changePage(PageName.HOME.index);
@@ -201,46 +216,65 @@ class BasicFrame extends StatelessWidget {
             Positioned(left: 621, top: 77, child: _categoryText('건강기획전')),
             Positioned(left: 739, top: 77, child: _categoryText('베스트')),
             Positioned(left: 825, top: 77, child: _categoryText('신상품')),
-            _searchForm(),
-            Positioned(left: 1291, top: 75, child: Image.asset(IconPath.star)),
-            Positioned(
-                left: 1335,
-                top: 75,
-                child: Image.asset(IconPath.shopping_basket)),
+            Positioned(left: 911, top: 61, child: _searchForm()),
+            Positioned(left: 1211, top: 75, child: Image.asset(IconPath.star)),
+            _shoppingCart(),
           ],
         ),
       ),
     );
   }
 
-  Widget _searchForm() {
+  Widget _shoppingCart() {
     return Stack(
       children: [
         Positioned(
-          left: 941,
-          top: 64,
-          child: Image.asset(IconPath.searchContainer),
-        ),
-        Positioned(left: 1201, top: 78, child: Image.asset(IconPath.search)),
+            left: 1268, top: 75, child: Image.asset(IconPath.shopping_basket)),
         Positioned(
-          left: 957,
-          top: 82,
+          left: 1283,
+          top: 91,
           child: Container(
+            width: 17,
             height: 17,
-            width: 230,
-            child: TextFormField(
-              decoration: InputDecoration(
-                border: InputBorder.none,
-                hintText: '스타터 패키지 20% 할인',
-                hintStyle: TextStyle(
-                  fontSize: 14,
-                  color: Color.fromRGBO(112, 120, 129, 1),
-                ),
+            decoration: BoxDecoration(
+              color: louisColor,
+              borderRadius: BorderRadius.circular(50),
+            ),
+            child: Center(
+              child: Text(
+                '0',
+                style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.white),
               ),
             ),
           ),
         ),
       ],
+    );
+  }
+
+  Widget _searchForm() {
+    return Container(
+      width: 260,
+      height: 52,
+      child: TextFormField(
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: Color.fromRGBO(242, 242, 242, 1),
+          hintText: '스타터 패키지 20% 할인',
+          hintStyle: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w400,
+          ),
+          suffixIcon: Image.asset(IconPath.search),
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide.none),
+          border: InputBorder.none,
+        ),
+      ),
     );
   }
 

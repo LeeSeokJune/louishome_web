@@ -18,4 +18,5 @@ class IconPath {
   static String get basic_info => 'assets/icon/basic_info.png';
   static String get complete => 'assets/icon/complete.png';
   static String get current_state => 'assets/icon/current_state.png';
+  static String get down_arrow => 'assets/icon/down_arrow.png';
 }
