@@ -41,10 +41,7 @@ class Curation1Screen extends StatelessWidget {
         Positioned(
           left: 183,
           top: 180,
-          child: Text(
-            '이름',
-            style: curationSmallTextStyle,
-          ),
+          child: Text('이름', style: curationSmallTextStyle),
         ),
         Positioned(
           left: 328,
@@ -88,10 +85,7 @@ class Curation1Screen extends StatelessWidget {
         Positioned(
           left: 183,
           top: 286,
-          child: Text(
-            '견종',
-            style: curationSmallTextStyle,
-          ),
+          child: Text('견종', style: curationSmallTextStyle),
         ),
         Positioned(
           left: 328,
