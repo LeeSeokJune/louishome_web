@@ -9,9 +9,9 @@ final curationSmallTextStyle =
     TextStyle(fontSize: 18, fontWeight: FontWeight.w600);
 
 enum CurationPageName {
-  BASICINFO,
-  CURRENTSTATE,
-  COMPLETE,
+  FisrtPage,
+  SecondPage,
+  ThirePage,
 }
 
 enum PageName {
@@ -22,4 +22,4 @@ enum PageName {
   CURATION3,
 }
 
-final List<double> widgetHeight = [1000, 900, 1400];
+final List<double> widgetHeight = [1000, 900, 1400, 1450];

@@ -3,6 +3,34 @@ import 'package:louishome_web/components/constants.dart';
 
 import '../../../components/imagesPath.dart';
 
+class CurationStepBox extends StatelessWidget {
+  CurationStepBox({Key? key, required this.pageIndex}) : super(key: key);
+  int pageIndex;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 290,
+      width: centerWidth,
+      child: Stack(
+        children: [
+          Positioned(
+            left: 535,
+            top: 0,
+            child: Text(
+              '맞춤 AI 추천',
+              style: TextStyle(
+                  fontSize: 48,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: letterSpacing),
+            ),
+          ),
+          CurationIconBox(type: pageIndex),
+        ],
+      ),
+    );
+  }
+}
+
 class CurationIconBox extends StatelessWidget {
   CurationIconBox({Key? key, required this.type}) : super(key: key);
   int type;

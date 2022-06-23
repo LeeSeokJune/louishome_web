@@ -3,90 +3,34 @@ import 'package:get/get.dart';
 import 'package:louishome_web/components/constants.dart';
 import 'package:louishome_web/components/imagesPath.dart';
 import 'package:louishome_web/controller/curation_controller.dart';
-import 'package:louishome_web/screens/curation/components/CurationIconBox.dart';
+import 'package:louishome_web/controller/pages_controller.dart';
+import 'package:louishome_web/screens/curation/components/curationBox.dart';
 
 import '../../data/curationData.dart';
 
-// TODO : Refactoring & Form
 class Curation1Screen extends StatelessWidget {
   Curation1Screen({Key? key}) : super(key: key);
   var curationController = Get.put(CurationController());
-
+  var pagesController = Get.put(PagesController());
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
         children: [
           SizedBox(height: 70),
-          _curationSteps(),
-          _box(),
-        ],
-      ),
-    );
-  }
-
-  Widget _curationSteps() {
-    return Container(
-      height: 290,
-      width: centerWidth,
-      child: Stack(
-        children: [
-          Positioned(
-            left: 535,
-            top: 0,
-            child: Text(
-              '맞춤 AI 추천',
-              style: TextStyle(
-                  fontSize: 48,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: letterSpacing),
-            ),
+          CurationBox(
+            height: 836,
+            pageIndex: CurationPageName.FisrtPage.index,
+            children: [
+              _inputName(),
+              _inputBreed(),
+              _inputBirth(),
+              _inputSex(),
+              _inputNeutering(),
+              Positioned(left: 530, top: 702, child: _nextButton()),
+            ],
           ),
-          CurationIconBox(type: CurationPageName.BASICINFO.index),
         ],
-      ),
-    );
-  }
-
-  Widget _box() {
-    return Container(
-      width: basicWidth,
-      height: 836,
-      decoration: BoxDecoration(
-        color: Color.fromRGBO(240, 240, 240, 1),
-      ),
-      child: _boxContents(),
-    );
-  }
-
-  Widget _boxContents() {
-    // 높이-536
-    return Center(
-      child: Container(
-        width: centerWidth,
-        height: 836,
-        child: Stack(
-          children: [
-            Positioned(
-              left: 183,
-              top: 63,
-              child: Text(
-                '내 반려동물의 기본정보를 알려주세요.',
-                style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: -2.5,
-                ),
-              ),
-            ),
-            _inputName(),
-            _inputBreed(),
-            _inputBirth(),
-            _inputSex(),
-            _inputNeutering(),
-            Positioned(left: 530, top: 702, child: _nextButton()),
-          ],
-        ),
       ),
     );
   }
@@ -286,19 +230,24 @@ class Curation1Screen extends StatelessWidget {
   }
 
   Widget _nextButton() {
-    return Container(
-      width: 200,
-      height: 54,
-      decoration: BoxDecoration(
-        color: louisColor,
-        borderRadius: BorderRadius.circular(5),
-      ),
-      child: Center(
-        child: Text(
-          '다음',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+    return InkWell(
+      child: Container(
+        width: 200,
+        height: 54,
+        decoration: BoxDecoration(
+          color: louisColor,
+          borderRadius: BorderRadius.circular(5),
+        ),
+        child: Center(
+          child: Text(
+            '다음',
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
         ),
       ),
+      onTap: () {
+        pagesController.changePage(PageName.CURATION2.index);
+      },
     );
   }
 }
