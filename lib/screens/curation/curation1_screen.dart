@@ -7,6 +7,7 @@ import 'package:louishome_web/screens/curation/components/CurationIconBox.dart';
 
 import '../../data/curationData.dart';
 
+// TODO : Refactoring & Form
 class Curation1Screen extends StatelessWidget {
   Curation1Screen({Key? key}) : super(key: key);
   var curationController = Get.put(CurationController());
@@ -19,6 +20,29 @@ class Curation1Screen extends StatelessWidget {
           SizedBox(height: 70),
           _curationSteps(),
           _box(),
+        ],
+      ),
+    );
+  }
+
+  Widget _curationSteps() {
+    return Container(
+      height: 290,
+      width: centerWidth,
+      child: Stack(
+        children: [
+          Positioned(
+            left: 535,
+            top: 0,
+            child: Text(
+              '맞춤 AI 추천',
+              style: TextStyle(
+                  fontSize: 48,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: letterSpacing),
+            ),
+          ),
+          CurationIconBox(type: CurationPageName.BASICINFO.index),
         ],
       ),
     );
@@ -88,6 +112,9 @@ class Curation1Screen extends StatelessWidget {
               cursorColor: Colors.black,
               decoration: _inputDecoration(),
               style: TextStyle(fontSize: 16),
+              onChanged: (value) {
+                curationController.curation['name'] = value;
+              },
             ),
           ),
         ),
@@ -125,35 +152,8 @@ class Curation1Screen extends StatelessWidget {
         Positioned(
           left: 328,
           top: 266,
-          child: Container(
-            width: 789,
-            height: 58,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(5),
-            ),
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
-              child: Obx(
-                () => DropdownButton(
-                  isExpanded: true,
-                  underline: SizedBox.shrink(),
-                  icon: Image.asset(IconPath.down_arrow),
-                  value: curationController.breedValue.value,
-                  items: breedList
-                      .map((value) => DropdownMenuItem(
-                            value: value,
-                            child: Text(value, style: TextStyle(fontSize: 16)),
-                          ))
-                      .toList(),
-                  onChanged: (value) {
-                    curationController.setBreedValue(value.toString());
-                  },
-                ),
-              ),
-            ),
-          ),
+          child:
+              _customDropDownButton('breed', breedList, width: 789, height: 58),
         ),
       ],
     );
@@ -173,122 +173,53 @@ class Curation1Screen extends StatelessWidget {
         Positioned(
           left: 328,
           top: 376,
-          child: Container(
-            width: 253,
-            height: 58,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(5),
-            ),
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
-              child: Obx(
-                () => DropdownButton(
-                  isExpanded: true,
-                  underline: SizedBox.shrink(),
-                  icon: Image.asset(IconPath.down_arrow),
-                  value: curationController.birthYear.value,
-                  items: birthYearList
-                      .map((value) => DropdownMenuItem(
-                            value: value,
-                            child: Text(value, style: TextStyle(fontSize: 16)),
-                          ))
-                      .toList(),
-                  onChanged: (value) {
-                    curationController.setBirthYear(value.toString());
-                  },
-                ),
-              ),
-            ),
-          ),
+          child: _customDropDownButton('birthYear', birthYearList),
         ),
         Positioned(
           left: 596,
           top: 376,
-          child: Container(
-            width: 253,
-            height: 58,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(5),
-            ),
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
-              child: Obx(
-                () => DropdownButton(
-                  isExpanded: true,
-                  underline: SizedBox.shrink(),
-                  icon: Image.asset(IconPath.down_arrow),
-                  value: curationController.birthMonth.value,
-                  items: birthMonthList
-                      .map((value) => DropdownMenuItem(
-                            value: value,
-                            child: Text(
-                              value,
-                              style: TextStyle(fontSize: 16),
-                            ),
-                          ))
-                      .toList(),
-                  onChanged: (value) {
-                    curationController.setBirthMonth(value.toString());
-                  },
-                ),
-              ),
-            ),
-          ),
+          child: _customDropDownButton('birthMonth', birthMonthList),
         ),
         Positioned(
           left: 864,
           top: 376,
-          child: Container(
-            width: 253,
-            height: 58,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(5),
-            ),
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
-              child: Obx(
-                () => DropdownButton(
-                  isExpanded: true,
-                  underline: SizedBox.shrink(),
-                  icon: Image.asset(IconPath.down_arrow),
-                  value: curationController.birthDay.value,
-                  items: birthDayList
-                      .map((value) => DropdownMenuItem(
-                            value: value,
-                            child: Text(
-                              value,
-                              style: TextStyle(fontSize: 16),
-                            ),
-                          ))
-                      .toList(),
-                  onChanged: (value) {
-                    curationController.setBirthDay(value.toString());
-                  },
-                ),
-              ),
-            ),
-          ),
+          child: _customDropDownButton('birthDay', birthDayList),
         ),
       ],
     );
   }
 
-  List<DropdownMenuItem> _dropDownMeueItems(itemList) {
-    return itemList
-        .map((value) => DropdownMenuItem(
-              value: value,
-              child: Text(
-                value,
-                style: TextStyle(fontSize: 16),
-              ),
-            ))
-        .toList();
+  Widget _customDropDownButton(String name, List list,
+      {double width = 253, double height = 58}) {
+    return Container(
+      width: width,
+      height: height,
+      decoration: BoxDecoration(
+          color: Colors.white, borderRadius: BorderRadius.circular(5)),
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
+        child: Obx(
+          () => DropdownButton(
+            isExpanded: true,
+            underline: SizedBox.shrink(),
+            icon: Image.asset(IconPath.down_arrow),
+            value: curationController.curation[name].value,
+            items: list
+                .map((value) => DropdownMenuItem(
+                      value: value,
+                      child: Text(
+                        value,
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ))
+                .toList(),
+            onChanged: (value) {
+              curationController.curation[name].value = value;
+            },
+          ),
+        ),
+      ),
+    );
   }
 
   Widget _inputSex() {
@@ -299,70 +230,8 @@ class Curation1Screen extends StatelessWidget {
           top: 498,
           child: Text('성별', style: curationSmallTextStyle),
         ),
-        Positioned(
-          left: 334,
-          top: 478,
-          child: Obx(
-            () => InkWell(
-              child: Container(
-                width: 253,
-                height: 58,
-                decoration: BoxDecoration(
-                  color: 0 == curationController.selectedSex.value
-                      ? louisColor
-                      : Colors.white,
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Center(
-                  child: Text(
-                    sex[0].toString(),
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: 0 == curationController.selectedSex.value
-                          ? Colors.white
-                          : louisColor,
-                    ),
-                  ),
-                ),
-              ),
-              onTap: () {
-                curationController.setSelectedSex(0);
-              },
-            ),
-          ),
-        ),
-        Positioned(
-          left: 596,
-          top: 478,
-          child: Obx(
-            () => InkWell(
-              child: Container(
-                width: 253,
-                height: 58,
-                decoration: BoxDecoration(
-                  color: 1 == curationController.selectedSex.value
-                      ? louisColor
-                      : Colors.white,
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Center(
-                  child: Text(
-                    sex[1].toString(),
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: 1 == curationController.selectedSex.value
-                          ? Colors.white
-                          : louisColor,
-                    ),
-                  ),
-                ),
-              ),
-              onTap: () {
-                curationController.setSelectedSex(1);
-              },
-            ),
-          ),
-        ),
+        Positioned(left: 334, top: 478, child: _selectBox('sex', 0, sex)),
+        Positioned(left: 596, top: 478, child: _selectBox('sex', 1, sex)),
       ],
     );
   }
@@ -375,71 +244,44 @@ class Curation1Screen extends StatelessWidget {
           top: 604,
           child: Text('중성화 여부', style: curationSmallTextStyle),
         ),
-        Positioned(
-          left: 334,
-          top: 594,
-          child: Obx(
-            () => InkWell(
-              child: Container(
-                width: 253,
-                height: 58,
-                decoration: BoxDecoration(
-                  color: 0 == curationController.selectedNeutering.value
-                      ? louisColor
-                      : Colors.white,
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Center(
-                  child: Text(
-                    yn[0].toString(),
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: 0 == curationController.selectedNeutering.value
-                          ? Colors.white
-                          : louisColor,
-                    ),
-                  ),
-                ),
-              ),
-              onTap: () {
-                curationController.setSelectedNeutering(0);
-              },
-            ),
-          ),
-        ),
-        Positioned(
-          left: 596,
-          top: 594,
-          child: Obx(
-            () => InkWell(
-              child: Container(
-                width: 253,
-                height: 58,
-                decoration: BoxDecoration(
-                  color: 1 == curationController.selectedNeutering.value
-                      ? louisColor
-                      : Colors.white,
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Center(
-                  child: Text(
-                    yn[1].toString(),
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: 1 == curationController.selectedNeutering.value
-                          ? Colors.white
-                          : louisColor,
-                    ),
-                  ),
-                ),
-              ),
-              onTap: () {
-                curationController.setSelectedNeutering(1);
-              },
-            ),
-          ),
-        ),
+        Positioned(left: 334, top: 594, child: _selectBox('neutering', 0, yn)),
+        Positioned(left: 596, top: 594, child: _selectBox('neutering', 1, yn)),
       ],
+    );
+  }
+
+  Widget _selectBox(String name, int index, List list) {
+    return Obx(
+      () => InkWell(
+        child: Container(
+          width: 253,
+          height: 58,
+          decoration: BoxDecoration(
+            color:
+                index == curationController.curation['selected_' + name].value
+                    ? louisColor
+                    : Colors.white,
+            borderRadius: BorderRadius.circular(5),
+          ),
+          child: Center(
+            child: Text(
+              list[index].toString(),
+              style: TextStyle(
+                fontSize: 16,
+                color: index ==
+                        curationController.curation['selected_' + name].value
+                    ? Colors.white
+                    : louisColor,
+              ),
+            ),
+          ),
+        ),
+        onTap: () {
+          curationController.curation['selected_' + name].value = index;
+          curationController.curation[name].value = index.toString();
+          print(curationController.curation['selected_' + name]);
+        },
+      ),
     );
   }
 
@@ -456,29 +298,6 @@ class Curation1Screen extends StatelessWidget {
           '다음',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
-      ),
-    );
-  }
-
-  Widget _curationSteps() {
-    return Container(
-      height: 290,
-      width: centerWidth,
-      child: Stack(
-        children: [
-          Positioned(
-            left: 535,
-            top: 0,
-            child: Text(
-              '맞춤 AI 추천',
-              style: TextStyle(
-                  fontSize: 48,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: letterSpacing),
-            ),
-          ),
-          CurationIconBox(type: CurationPageName.BASICINFO.index),
-        ],
       ),
     );
   }
