@@ -5,6 +5,7 @@ import 'package:louishome_web/components/imagesPath.dart';
 import 'package:louishome_web/screens/curation/curation1_screen.dart';
 import 'package:louishome_web/screens/curation/curation2_screen.dart';
 import '../controller/pages_controller.dart';
+import 'curation/curation3_screen.dart';
 import 'curation/curation_screen.dart';
 import 'home/home_screen.dart';
 
@@ -12,6 +13,7 @@ class BasicFrame extends StatelessWidget {
   BasicFrame({Key? key}) : super(key: key);
   var pagesController = Get.put(PagesController());
   final homeKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +22,7 @@ class BasicFrame extends StatelessWidget {
           topbar(context),
           Obx(
             () => Container(
-              height: widgetHeight[pagesController.pageIndex.value],
+              height: getHeight(pagesController.pageIndex.value),
               child: IndexedStack(
                 index: pagesController.pageIndex.value,
                 children: [
@@ -28,6 +30,7 @@ class BasicFrame extends StatelessWidget {
                   CurationScreen(),
                   Curation1Screen(),
                   Curation2Screen(),
+                  Curation3Screen(),
                 ],
               ),
             ),

@@ -15,11 +15,35 @@ enum CurationPageName {
 }
 
 enum PageName {
-  HOME,
-  CURATION,
-  CURATION1,
-  CURATION2,
-  CURATION3,
+  HOME(1000),
+  CURATION(900),
+  CURATION1(1400),
+  CURATION2(1450),
+  CURATION3(1000),
+  CURATIONSTORE(1150);
+
+  final double height;
+  const PageName(this.height);
 }
 
-final List<double> widgetHeight = [1000, 900, 1400, 1450];
+double getHeight(var pageIndex) {
+  if (PageName.HOME.index == pageIndex) {
+    return 1000;
+  }
+  if (PageName.CURATION.index == pageIndex) {
+    return 900;
+  }
+  if (PageName.CURATION1.index == pageIndex) {
+    return 1400;
+  }
+  if (PageName.CURATION2.index == pageIndex) {
+    return 1450;
+  }
+  if (PageName.CURATION3.index == pageIndex) {
+    return 1000;
+  }
+  if (PageName.CURATIONSTORE.index == pageIndex) {
+    return 1150;
+  }
+  return 0.0;
+}
