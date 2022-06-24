@@ -15,35 +15,30 @@ enum CurationPageName {
 }
 
 enum PageName {
-  HOME(1000),
-  CURATION(900),
-  CURATION1(1400),
-  CURATION2(1450),
-  CURATION3(1000),
-  CURATIONSTORE(1150);
+  HOME(),
+  CURATION(),
+  CURATION1(),
+  CURATION2(),
+  CURATION3(),
+  CURATIONSTORE();
 
-  final double height;
-  const PageName(this.height);
+  // final double height;
+  // const PageName(this.height);
 }
 
-double getHeight(var pageIndex) {
-  if (PageName.HOME.index == pageIndex) {
-    return 1000;
+double getHeight(int pageIndex) {
+  switch (PageName.values[pageIndex]) {
+    case PageName.HOME:
+      return 1000;
+    case PageName.CURATION:
+      return 900;
+    case PageName.CURATION1:
+      return 1400;
+    case PageName.CURATION2:
+      return 1450;
+    case PageName.CURATION3:
+      return 1000;
+    case PageName.CURATIONSTORE:
+      return 1150;
   }
-  if (PageName.CURATION.index == pageIndex) {
-    return 900;
-  }
-  if (PageName.CURATION1.index == pageIndex) {
-    return 1400;
-  }
-  if (PageName.CURATION2.index == pageIndex) {
-    return 1450;
-  }
-  if (PageName.CURATION3.index == pageIndex) {
-    return 1000;
-  }
-  if (PageName.CURATIONSTORE.index == pageIndex) {
-    return 1150;
-  }
-  return 0.0;
 }

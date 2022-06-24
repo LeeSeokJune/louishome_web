@@ -4,6 +4,7 @@ import 'package:louishome_web/components/constants.dart';
 import 'package:louishome_web/components/imagesPath.dart';
 import 'package:louishome_web/screens/curation/curation1_screen.dart';
 import 'package:louishome_web/screens/curation/curation2_screen.dart';
+import 'package:louishome_web/screens/curation/curationStore.dart';
 import '../controller/pages_controller.dart';
 import 'curation/curation3_screen.dart';
 import 'curation/curation_screen.dart';
@@ -31,6 +32,7 @@ class BasicFrame extends StatelessWidget {
                   Curation1Screen(),
                   Curation2Screen(),
                   Curation3Screen(),
+                  CurationStore(),
                 ],
               ),
             ),
