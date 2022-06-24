@@ -12,8 +12,8 @@ class CurationController extends GetxController {
     'sex': '수컷',
     'bcs': '0',
     'neutering': '0',
-    'algList': '',
-    'healthList': '',
+    'algList': [].obs,
+    'healthList': [].obs,
     'diet': '0',
     'sprotein': '0',
     'size': '무관',
@@ -21,6 +21,7 @@ class CurationController extends GetxController {
     'selected_sex': 0.obs,
     'selected_neutering': 0.obs,
     'selected_bcs': 0.obs,
+    'selected_hasAlg': 0.obs,
   }.obs;
 
   void setBreedValue(value) {
