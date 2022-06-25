@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 
 class PagesController extends GetxController {
-  RxInt pageIndex = 0.obs;
+  RxInt pageIndex = 5.obs;
   RxDouble widgetHeight = 1000.0.obs;
-  List<int> pageHistory = [0];
+  List<int> pageHistory = [1, 2, 3, 4, 5];
 
   void willPopAction() {
     if (pageHistory.length == 1) {

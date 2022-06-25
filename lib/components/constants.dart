@@ -42,3 +42,9 @@ double getHeight(int pageIndex) {
       return 1150;
   }
 }
+
+enum CurationStorePageName {
+  PETFOOD,
+  NUTRIENTS,
+  SNACK,
+}

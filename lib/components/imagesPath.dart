@@ -2,6 +2,9 @@ class ImagesPath {
   static String get horizontalLogo =>
       'assets/logo/louishome_horizontal_logo.png';
   static String get petfood_group => 'assets/images/petfood_group.png';
+  static String get curationItem0 => 'assets/images/petfood1.png';
+  static String get curationItem1 => 'assets/images/nutrients.png';
+  static String get curationItem2 => 'assets/images/snack.png';
 }
 
 class IconPath {
@@ -20,4 +23,5 @@ class IconPath {
   static String get current_state => 'assets/icon/current_state.png';
   static String get down_arrow => 'assets/icon/down_arrow.png';
   static String get curation_dog => 'assets/icon/curation_dog.png';
+  static String get shoppingcart => 'assets/icon/shoppingcart.png';
 }
