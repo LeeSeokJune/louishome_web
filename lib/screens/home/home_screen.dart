@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:louishome_web/components/constants.dart';
-import 'package:louishome_web/components/imagesPath.dart';
-
+import 'package:louishome_web/screens/home/components/mainBox.dart';
 import '../../controller/homeBox_controller.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -11,81 +10,76 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        children: [
-          _box(context),
-        ],
+      child: Container(
+        alignment: Alignment.topCenter,
+        decoration: testLine,
+        width: basicWidth,
+        child: Column(
+          children: [
+            MainBox(),
+            SizedBox(height: 110),
+            _bestProducts(),
+          ],
+        ),
       ),
     );
   }
 
-  Widget _box(BuildContext context) {
+  Widget _bestProducts() {
+    //-770 top
     return Container(
-      width: basicWidth,
-      height: 480,
-      color: Color.fromRGBO(240, 240, 240, 1),
+      width: centerWidth,
+      height: 1112,
       child: Stack(
         children: [
-          AnimatedSwitcher(
-            duration: Duration(milliseconds: 500),
-            child: IndexedStack(
-              index: homeBoxController.homeBoxIndex.value,
-              children: [
-                _showBox(index: 0),
-                _showBox(index: 1),
-              ],
+          Positioned(
+            left: 583,
+            top: 0,
+            child: Text(
+              '베스트 상품',
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
           Positioned(
-              right: context.width - basicWidth > 0
-                  ? 310
-                  : 310 - (basicWidth - context.width) / 2,
-              top: 180,
-              child: _pageController()),
+            left: 559,
+            top: 46,
+            child: Text('이번주 가장 인기있는 상품이에요.'),
+          ),
+          Positioned(top: 100, child: _bestProductDetailBox()),
         ],
       ),
     );
   }
 
-  Widget _showBox({index}) {
-    return Image.asset(ImagesPath.first_box);
-  }
-
-  Widget _pageController() {
-    return Column(
-      children: [
-        _pageSwitcher(index: 0),
-        SizedBox(height: 26),
-        _pageSwitcher(index: 1),
-        SizedBox(height: 26),
-        _pageSwitcher(index: 2),
-        SizedBox(height: 26),
-        _pageSwitcher(index: 3),
-      ],
-    );
-  }
-
-  Widget _pageSwitcher({index}) {
+  Widget _bestProductDetailBox() {
     return Container(
-      width: 18,
-      height: 18,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(50),
-        border: Border.all(
-          color: homeBoxController.homeBoxIndexIsIndex(index)
-              ? louisColor
-              : Colors.grey,
-        ),
-      ),
-      child: Container(
-        width: 6,
-        height: 6,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(50),
-          color: homeBoxController.homeBoxIndexIsIndex(index)
-              ? louisColor
-              : Colors.grey,
-        ),
+      decoration: testLine,
+      child: Stack(
+        children: [
+          Positioned(
+            child: Container(
+              width: 395,
+              height: 453,
+              decoration: BoxDecoration(
+                color: Color.fromRGBO(240, 240, 240, 1),
+              ),
+            ),
+          ),
+          Positioned(
+            left: 136,
+            child: Container(
+              width: 123,
+              height: 49,
+              decoration: BoxDecoration(
+                color: louisColor,
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

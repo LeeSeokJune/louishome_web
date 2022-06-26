@@ -313,7 +313,8 @@ class BasicFrame extends StatelessWidget {
         ),
       ),
       onTap: () {
-        if (text == TopCategoryName.STARTER) {
+        if (text == TopCategoryName.STARTER.text) {
+          print('asdf');
           pagesController.changePage(PageName.STARTER.index);
         }
       },
