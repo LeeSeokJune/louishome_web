@@ -13,7 +13,6 @@ class Curation3Screen extends StatelessWidget {
   var curationController = Get.put(CurationController());
   @override
   Widget build(BuildContext context) {
-    print(PageName.CURATION.index == 1);
     return CurationBox(
       showInfo: false,
       height: 497,

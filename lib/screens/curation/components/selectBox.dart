@@ -50,7 +50,6 @@ class SelectBox extends StatelessWidget {
         onTap: () {
           curationController.curation['selected_' + name].value = index;
           curationController.curation[name] = index.toString();
-          // print(curationController.curation['selected_' + name]);
         },
       ),
     );

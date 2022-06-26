@@ -10,6 +10,8 @@ class ImagesPath {
   static String get kitten => basicImagePath + 'kitten.png';
   static String get puppy => basicImagePath + 'puppy.png';
   static String get starter_main => basicImagePath + 'starter_main.png';
+  static String get home_main_dog => basicImagePath + 'home_main.dog.png';
+  static String get first_box => basicImagePath + 'first_box.png';
 }
 
 class IconPath {

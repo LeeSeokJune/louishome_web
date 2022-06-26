@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:louishome_web/components/constants.dart';
 import 'package:louishome_web/components/imagesPath.dart';
 
@@ -10,43 +11,11 @@ class StartScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Container(
+          decoration: testLine,
           width: basicWidth,
           child: Column(
             children: [
-              Center(
-                child: Stack(
-                  children: [
-                    Container(
-                        width: basicWidth,
-                        height: 595,
-                        child: Image.asset(ImagesPath.starter_main)),
-                    Positioned(
-                      left: 310,
-                      top: 112,
-                      child: Text(
-                        '제품 안내도 받고, 패키지로 구매해서 할인도 받고',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w400),
-                      ),
-                    ),
-                    Positioned(
-                      left: 0,
-                      top: 160,
-                      child: Container(
-                        width: 516,
-                        height: 124,
-                        child: Text(
-                          '새로운 가족을 맞이하기 위한 루이스홈 가이드',
-                          style: TextStyle(
-                            fontSize: 46,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              _starterMainImage(context),
               SizedBox(height: 120),
               _selectPetType(),
             ],
@@ -56,8 +25,52 @@ class StartScreen extends StatelessWidget {
     );
   }
 
+  Widget _starterMainImage(BuildContext context) {
+    return Stack(
+      children: [
+        Container(
+          width: basicWidth,
+          child: Image.asset(
+            ImagesPath.starter_main,
+            width: basicWidth,
+            height: 595,
+            fit: BoxFit.fitHeight,
+          ),
+        ),
+        Positioned(
+          left: context.width - basicWidth > 0
+              ? 310
+              : 310 - (basicWidth - context.width) / 2,
+          top: 112,
+          child: Text(
+            '제품 안내도 받고, 패키지로 구매해서 할인도 받고',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+          ),
+        ),
+        Positioned(
+          left: context.width - basicWidth > 0
+              ? 310
+              : 310 - (basicWidth - context.width) / 2,
+          top: 160,
+          child: Container(
+            width: 516,
+            height: 124,
+            child: Text(
+              '새로운 가족을 맞이하기 위한 루이스홈 가이드',
+              style: TextStyle(
+                fontSize: 46,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   Widget _selectPetType() {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [_imageContainer(index: 0), _imageContainer(index: 1)],
     );
   }
