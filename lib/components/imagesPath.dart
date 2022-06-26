@@ -1,10 +1,15 @@
+final basicImagePath = 'assets/images/';
+
 class ImagesPath {
   static String get horizontalLogo =>
       'assets/logo/louishome_horizontal_logo.png';
-  static String get petfood_group => 'assets/images/petfood_group.png';
-  static String get curationItem0 => 'assets/images/petfood1.png';
-  static String get curationItem1 => 'assets/images/nutrients.png';
-  static String get curationItem2 => 'assets/images/snack.png';
+  static String get petfood_group => basicImagePath + 'petfood_group.png';
+  static String get curationItem0 => basicImagePath + 'petfood1.png';
+  static String get curationItem1 => basicImagePath + 'nutrients.png';
+  static String get curationItem2 => basicImagePath + 'snack.png';
+  static String get kitten => basicImagePath + 'kitten.png';
+  static String get puppy => basicImagePath + 'puppy.png';
+  static String get starter_main => basicImagePath + 'starter_main.png';
 }
 
 class IconPath {

@@ -20,7 +20,8 @@ enum PageName {
   CURATION1(),
   CURATION2(),
   CURATION3(),
-  CURATIONSTORE();
+  CURATIONSTORE(),
+  STARTER(),
 
   // final double height;
   // const PageName(this.height);
@@ -40,6 +41,8 @@ double getHeight(int pageIndex) {
       return 1000;
     case PageName.CURATIONSTORE:
       return 1150;
+    case PageName.STARTER:
+      return 1500;
   }
 }
 
@@ -47,4 +50,17 @@ enum CurationStorePageName {
   PETFOOD,
   NUTRIENTS,
   SNACK,
+}
+
+enum TopCategoryName {
+  CATEGORY('전체카테고리'),
+  CUSTOMSHOPPING('맞춤 쇼핑'),
+  STARTER('스타터'),
+  HEALTH('건강기획전'),
+  BEST('베스트'),
+  NEWITEM('신상품'),
+  ;
+
+  final String text;
+  const TopCategoryName(this.text);
 }

@@ -352,6 +352,17 @@ class CurationStore extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 16),
+        _sideItemRightText(),
+        SizedBox(height: 22),
+        _shoppingcartButton(radius: 28, size: 16)
+      ],
+    );
+  }
+
+  Widget _sideItemRightText() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
         Container(
           height: 17,
           child: Text(
@@ -389,8 +400,6 @@ class CurationStore extends StatelessWidget {
             )
           ],
         ),
-        SizedBox(height: 22),
-        _shoppingcartButton(radius: 28, size: 16)
       ],
     );
   }

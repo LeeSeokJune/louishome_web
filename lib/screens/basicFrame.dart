@@ -5,6 +5,7 @@ import 'package:louishome_web/components/imagesPath.dart';
 import 'package:louishome_web/screens/curation/curation1_screen.dart';
 import 'package:louishome_web/screens/curation/curation2_screen.dart';
 import 'package:louishome_web/screens/curation/curationStore.dart';
+import 'package:louishome_web/screens/starter/starter_screen.dart';
 import '../controller/pages_controller.dart';
 import 'curation/curation3_screen.dart';
 import 'curation/curation_screen.dart';
@@ -33,6 +34,7 @@ class BasicFrame extends StatelessWidget {
                   Curation2Screen(),
                   Curation3Screen(),
                   CurationStore(),
+                  StartScreen(),
                 ],
               ),
             ),
@@ -214,15 +216,31 @@ class BasicFrame extends StatelessWidget {
                     IconPath.menu,
                   ),
                   SizedBox(width: 10),
-                  _categoryText('전체카테고리'),
+                  _categoryTextButton('전체카테고리'),
                 ],
               ),
             ),
-            Positioned(left: 433, top: 77, child: _categoryText('맞춤쇼핑')),
-            Positioned(left: 535, top: 77, child: _categoryText('스타터')),
-            Positioned(left: 621, top: 77, child: _categoryText('건강기획전')),
-            Positioned(left: 739, top: 77, child: _categoryText('베스트')),
-            Positioned(left: 825, top: 77, child: _categoryText('신상품')),
+            Positioned(
+                left: 433,
+                top: 77,
+                child:
+                    _categoryTextButton(TopCategoryName.CUSTOMSHOPPING.text)),
+            Positioned(
+                left: 535,
+                top: 77,
+                child: _categoryTextButton(TopCategoryName.STARTER.text)),
+            Positioned(
+                left: 621,
+                top: 77,
+                child: _categoryTextButton(TopCategoryName.HEALTH.text)),
+            Positioned(
+                left: 739,
+                top: 77,
+                child: _categoryTextButton(TopCategoryName.BEST.text)),
+            Positioned(
+                left: 825,
+                top: 77,
+                child: _categoryTextButton(TopCategoryName.NEWITEM.text)),
             Positioned(left: 911, top: 61, child: _searchForm()),
             Positioned(left: 1211, top: 75, child: Image.asset(IconPath.star)),
             _shoppingCart(),
@@ -285,13 +303,20 @@ class BasicFrame extends StatelessWidget {
     );
   }
 
-  Widget _categoryText(String text) {
-    return Text(
-      text,
-      style: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.w700,
+  Widget _categoryTextButton(String text) {
+    return InkWell(
+      child: Text(
+        text,
+        style: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w700,
+        ),
       ),
+      onTap: () {
+        if (text == TopCategoryName.STARTER) {
+          pagesController.changePage(PageName.STARTER.index);
+        }
+      },
     );
   }
 
