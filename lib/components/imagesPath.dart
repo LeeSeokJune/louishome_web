@@ -1,4 +1,5 @@
 final basicImagePath = 'assets/images/';
+final iconPath = 'assets/icon/';
 
 class ImagesPath {
   static String get horizontalLogo =>
@@ -15,20 +16,25 @@ class ImagesPath {
 }
 
 class IconPath {
-  static String get instagramIcon => 'assets/icon/instagram.png';
-  static String get kakaoIcon => 'assets/icon/kakao.png';
-  static String get upperArrowBox => 'assets/icon/upper_arrow_box.png';
-  static String get rightArrow => 'assets/icon/right_arrow.png';
-  static String get addPoint => 'assets/icon/add_point.png';
-  static String get menu => 'assets/icon/menu.png';
-  static String get searchContainer => 'assets/icon/search_container.png';
-  static String get search => 'assets/icon/search_icon.png';
-  static String get star => 'assets/icon/star.png';
-  static String get shopping_basket => 'assets/icon/shopping_basket.png';
-  static String get basic_info => 'assets/icon/basic_info.png';
-  static String get complete => 'assets/icon/complete.png';
-  static String get current_state => 'assets/icon/current_state.png';
-  static String get down_arrow => 'assets/icon/down_arrow.png';
-  static String get curation_dog => 'assets/icon/curation_dog.png';
-  static String get shoppingcart => 'assets/icon/shoppingcart.png';
+  static String get instagramIcon => iconPath + 'instagram.png';
+  static String get kakaoIcon => iconPath + 'kakao.png';
+  static String get upperArrowBox => iconPath + 'upper_arrow_box.png';
+  static String get rightArrow => iconPath + 'right_arrow.png';
+  static String get addPoint => iconPath + 'add_point.png';
+  static String get menu => iconPath + 'menu.png';
+  static String get searchContainer => iconPath + 'search_container.png';
+  static String get search => iconPath + 'search_icon.png';
+  static String get star => iconPath + 'star.png';
+  static String get shopping_basket => iconPath + 'shopping_basket.png';
+  static String get basic_info => iconPath + 'basic_info.png';
+  static String get complete => iconPath + 'complete.png';
+  static String get current_state => iconPath + 'current_state.png';
+  static String get down_arrow => iconPath + 'down_arrow.png';
+  static String get curation_dog => iconPath + 'curation_dog.png';
+  static String get shoppingcart => iconPath + 'shoppingcart.png';
+  static String get piggy_bank => iconPath + 'piggy_bank.png';
+  static String get delivery_truck => iconPath + 'delivery_truck.png';
+  static String get courier_box => iconPath + 'courier_box.png';
+  static String get favorite => iconPath + 'favorite.png';
+  static String get hotdeal_clock => iconPath + 'hotdeal_clock.png';
 }
