@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:louishome_web/components/constants.dart';
 import 'package:louishome_web/screens/home/components/bestProduct.dart';
+import 'package:louishome_web/screens/home/components/louisShoppingBasket.dart';
 import 'package:louishome_web/screens/home/components/mainBox.dart';
+import 'package:louishome_web/screens/home/components/mdRecommend.dart';
 import 'package:louishome_web/screens/home/components/newProduct.dart';
 import 'package:louishome_web/screens/home/components/petfoodSubscription.dart';
 import 'package:louishome_web/screens/home/components/todayHotDeal.dart';
@@ -24,7 +26,9 @@ class HomeScreen extends StatelessWidget {
             // BestProduct(),
             // PetfoodSubScription(),
             // NewProduct(),
-            TodayHotDeal(),
+            // TodayHotDeal(),
+            MDRecommend(),
+            LouisShoppingBasket(),
           ],
         ),
       ),

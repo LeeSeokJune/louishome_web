@@ -13,6 +13,13 @@ class ImagesPath {
   static String get starter_main => basicImagePath + 'starter_main.png';
   static String get home_main_dog => basicImagePath + 'home_main.dog.png';
   static String get first_box => basicImagePath + 'first_box.png';
+  static String get md_recommend_dog => basicImagePath + 'md_recommend_dog.png';
+  static String get tapioca_bag => basicImagePath + 'tapioca_bag.png';
+  static String get harness => basicImagePath + 'harness.png';
+  static String get bowl => basicImagePath + 'bowl.png';
+  static String get dog_bed => basicImagePath + 'dog_bed.png';
+  static String get dog_toy => basicImagePath + 'dog_toy.png';
+  static String get pet_shampoo => basicImagePath + 'pet_shampoo.png';
 }
 
 class IconPath {
