@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:louishome_web/components/constants.dart';
 import 'package:louishome_web/components/imagesPath.dart';
-import 'package:louishome_web/screens/home/components/mainBox.dart';
 
 class LouisShoppingBasket extends StatelessWidget {
   const LouisShoppingBasket({Key? key}) : super(key: key);
@@ -9,7 +8,7 @@ class LouisShoppingBasket extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 1920,
+      width: basicWidth,
       height: 828,
       decoration: BoxDecoration(
         color: Color.fromRGBO(240, 240, 240, 1),
@@ -21,59 +20,67 @@ class LouisShoppingBasket extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Column(
-                children: [
-                  Row(
-                    children: [
-                      _louisTextContainer(),
-                      SizedBox(width: 20),
-                      _productContainer(
-                        mainText: '밥 & 물 보울',
-                        price: '35,800원',
-                        imagePath: ImagesPath.bowl,
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 20),
-                  Row(
-                    children: [
-                      _productContainer(
-                        mainText: '강아지 장난감',
-                        price: '35,800원',
-                        imagePath: ImagesPath.dog_toy,
-                      ),
-                      SizedBox(width: 20),
-                      _productContainer(
-                        mainText: '오가닉 펫 샴푸',
-                        price: '35,800원',
-                        imagePath: ImagesPath.pet_shampoo,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+              _small_4products_container(),
               SizedBox(width: 20),
-              Container(
-                width: 636,
-                height: 688,
-                color: Colors.white,
-                child: Column(
-                  children: [
-                    SizedBox(height: 116),
-                    Container(
-                      width: 545,
-                      height: 406,
-                      child: Image.asset(ImagesPath.dog_bed),
-                    ),
-                    SizedBox(height: 104),
-                    _textBox(mainText: '강아지 소파 스타일 침대', price: '35,800원'),
-                  ],
-                ),
-              ),
+              _bigProductContainer(),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Container _bigProductContainer() {
+    return Container(
+      width: 636,
+      height: 688,
+      color: Colors.white,
+      child: Column(
+        children: [
+          SizedBox(height: 116),
+          Container(
+            width: 545,
+            height: 406,
+            child: Image.asset(ImagesPath.dog_bed),
+          ),
+          SizedBox(height: 104),
+          _textBox(mainText: '강아지 소파 스타일 침대', price: '35,800원'),
+        ],
+      ),
+    );
+  }
+
+  Column _small_4products_container() {
+    return Column(
+      children: [
+        Row(
+          children: [
+            _louisTextContainer(),
+            SizedBox(width: 20),
+            _productContainer(
+              mainText: '밥 & 물 보울',
+              price: '35,800원',
+              imagePath: ImagesPath.bowl,
+            ),
+          ],
+        ),
+        SizedBox(height: 20),
+        Row(
+          children: [
+            _productContainer(
+              mainText: '강아지 장난감',
+              price: '35,800원',
+              imagePath: ImagesPath.dog_toy,
+            ),
+            SizedBox(width: 20),
+            _productContainer(
+              mainText: '오가닉 펫 샴푸',
+              price: '35,800원',
+              imagePath: ImagesPath.pet_shampoo,
+            ),
+          ],
+        ),
+      ],
     );
   }
 

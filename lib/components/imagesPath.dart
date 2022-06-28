@@ -20,6 +20,9 @@ class ImagesPath {
   static String get dog_bed => basicImagePath + 'dog_bed.png';
   static String get dog_toy => basicImagePath + 'dog_toy.png';
   static String get pet_shampoo => basicImagePath + 'pet_shampoo.png';
+  static String get discount_dog => basicImagePath + 'discount_dog.png';
+  static String get discount_furniture =>
+      basicImagePath + 'discount_furniture.png';
 }
 
 class IconPath {

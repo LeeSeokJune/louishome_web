@@ -15,7 +15,6 @@ class TodayHotDeal extends StatelessWidget {
       ),
       child: Center(
         child: Container(
-          decoration: testLine,
           width: basicWidth,
           height: 951,
           child: Column(

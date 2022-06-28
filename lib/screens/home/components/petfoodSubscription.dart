@@ -86,39 +86,44 @@ class PetfoodSubScription extends StatelessWidget {
       decoration: BoxDecoration(
         color: Color.fromRGBO(245, 245, 245, 1),
       ),
-      child: Stack(
-        children: [
-          Positioned(
-            left: 97,
-            top: 94,
-            child: _iconText(
-              iconPath: IconPath.piggy_bank,
-              mainText: '전 제품 5% 적립',
-              subText1: '사료 정기 구독 고객, 구매하신 전 제품',
-              subText2: '5%를 적립해 드립니다.',
-            ),
+      child: Center(
+        child: Container(
+          width: centerWidth,
+          child: Stack(
+            children: [
+              Positioned(
+                left: 97,
+                top: 94,
+                child: _iconText(
+                  iconPath: IconPath.piggy_bank,
+                  mainText: '전 제품 5% 적립',
+                  subText1: '사료 정기 구독 고객, 구매하신 전 제품',
+                  subText2: '5%를 적립해 드립니다.',
+                ),
+              ),
+              Positioned(
+                left: 533,
+                top: 94,
+                child: _iconText(
+                  iconPath: IconPath.piggy_bank,
+                  mainText: '정기배송 상품 배송비 무료',
+                  subText1: '정기 배송 삼품은 무료로 배송해 드립니다.',
+                  subText2: '배송비 걱정말고 받아보세요!',
+                ),
+              ),
+              Positioned(
+                left: 968,
+                top: 94,
+                child: _iconText(
+                  iconPath: IconPath.piggy_bank,
+                  mainText: '수수료 없이 사료 교체 및 구독 취소',
+                  subText1: '언제든 마음 편하게 사료 교체 및',
+                  subText2: '구독 취소를 도와드립니다.',
+                ),
+              ),
+            ],
           ),
-          Positioned(
-            left: 533,
-            top: 94,
-            child: _iconText(
-              iconPath: IconPath.piggy_bank,
-              mainText: '정기배송 상품 배송비 무료',
-              subText1: '정기 배송 삼품은 무료로 배송해 드립니다.',
-              subText2: '배송비 걱정말고 받아보세요!',
-            ),
-          ),
-          Positioned(
-            left: 968,
-            top: 94,
-            child: _iconText(
-              iconPath: IconPath.piggy_bank,
-              mainText: '수수료 없이 사료 교체 및 구독 취소',
-              subText1: '언제든 마음 편하게 사료 교체 및',
-              subText2: '구독 취소를 도와드립니다.',
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
