@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:louishome_web/components/constants.dart';
 import 'package:louishome_web/components/imagesPath.dart';
 
@@ -44,7 +42,14 @@ class TodayHotDeal extends StatelessWidget {
               SizedBox(height: 20),
               _clock(),
               SizedBox(height: 60),
-              _hotdealProductBox()
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  _hotdealProductBox(index: 0),
+                  _hotdealProductBox(index: 1),
+                  _hotdealProductBox(index: 2),
+                ],
+              )
             ],
           ),
         ),
@@ -75,16 +80,83 @@ class TodayHotDeal extends StatelessWidget {
     );
   }
 
-  Widget _hotdealProductBox() {
+  Widget _hotdealProductBox({index}) {
     return Container(
       width: 407,
       height: 407,
       decoration: BoxDecoration(
-        color: Colors.black,
+        color: Colors.white,
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(100),
-          topRight: Radius.circular(100),
+          topLeft: Radius.circular(250),
+          topRight: Radius.circular(250),
         ),
+      ),
+      child: Stack(
+        children: [
+          Positioned(
+            left: 77,
+            top: 109,
+            child: Image.asset(
+              'assets/images/petfood${index}.png',
+              height: 189,
+              width: 253,
+            ),
+          ),
+          Positioned(
+            left: 20,
+            top: 312,
+            child: Text(
+              '강아지',
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.grey,
+              ),
+            ),
+          ),
+          Positioned(
+            left: 20,
+            top: 337,
+            child: Text(
+              '강아지 하네스 3종 SET',
+              style: TextStyle(
+                fontSize: 16,
+              ),
+            ),
+          ),
+          Positioned(
+            left: 20,
+            top: 367,
+            child: Row(
+              children: [
+                Text(
+                  '28%',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.blue,
+                  ),
+                ),
+                SizedBox(width: 10),
+                Text(
+                  '55,800원',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.grey,
+                    decoration: TextDecoration.lineThrough,
+                  ),
+                ),
+                SizedBox(width: 10),
+                Text(
+                  '35,800원',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
