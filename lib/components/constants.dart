@@ -30,7 +30,7 @@ enum PageName {
 double getHeight(int pageIndex) {
   switch (PageName.values[pageIndex]) {
     case PageName.HOME:
-      return 8551;
+      return 7551;
     case PageName.CURATION:
       return 900;
     case PageName.CURATION1:

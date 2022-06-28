@@ -4,7 +4,6 @@ import 'package:louishome_web/components/constants.dart';
 import 'package:louishome_web/screens/home/components/snackContainer.dart';
 import 'package:louishome_web/screens/home/components/bestProduct.dart';
 import 'package:louishome_web/screens/home/components/dicountBelt.dart';
-import 'package:louishome_web/screens/home/components/instagram.dart';
 import 'package:louishome_web/screens/home/components/louisShoppingBasket.dart';
 import 'package:louishome_web/screens/home/components/mainBox.dart';
 import 'package:louishome_web/screens/home/components/mdRecommend.dart';
@@ -35,7 +34,6 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 160),
             DiscountBelt(),
             SizedBox(height: 160),
-            // Instagram(),
             SnackContainer(),
           ],
         ),
