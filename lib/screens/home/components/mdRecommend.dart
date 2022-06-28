@@ -24,9 +24,24 @@ class MDRecommend extends StatelessWidget {
                   fit: BoxFit.contain,
                 ),
               ),
-              Text('MD 추천'),
-              Text(
-                '특별한 날 이런 간식 어때요?',
+              Positioned(
+                left: 511,
+                top: 401,
+                child: Text(
+                  'MD 추천',
+                  style: TextStyle(
+                    fontSize: 51,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Positioned(
+                left: 511,
+                top: 478,
+                child: Text(
+                  '특별한 날 이런 간식 어때요?',
+                  style: TextStyle(fontSize: 23),
+                ),
               ),
             ],
           ),
@@ -49,7 +64,7 @@ class MDRecommend extends StatelessWidget {
                     mainText: '강아지하네스',
                     subText1: '반려인과 반려동물의 즐겁고',
                     subText2: '편한 산책을 위해 제작되었습니다.',
-                  )
+                  ),
                 ],
               ),
             ],
@@ -61,16 +76,16 @@ class MDRecommend extends StatelessWidget {
 
   Container _imageContainer({imagePath}) {
     return Container(
-      width: 480,
-      height: 471,
+      width: 481,
+      height: 470,
       child: Image.asset(imagePath),
     );
   }
 
   Container _textContainer({mainText, subText1, subText2}) {
     return Container(
-      width: 480,
-      height: 471,
+      width: 475,
+      height: 470,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
