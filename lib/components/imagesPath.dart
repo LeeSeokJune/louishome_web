@@ -23,6 +23,8 @@ class ImagesPath {
   static String get discount_dog => basicImagePath + 'discount_dog.png';
   static String get discount_furniture =>
       basicImagePath + 'discount_furniture.png';
+  static get product_main => basicImagePath + 'product_main.png';
+  static get bowl_petfood => basicImagePath + 'bowl_petfood.png';
 }
 
 class IconPath {
@@ -47,4 +49,8 @@ class IconPath {
   static String get courier_box => iconPath + 'courier_box.png';
   static String get favorite => iconPath + 'favorite.png';
   static String get hotdeal_clock => iconPath + 'hotdeal_clock.png';
+  static String get nutrient => iconPath + 'nutrient.png';
+  static String get petfood => iconPath + 'petfood.png';
+  static String get star_fill => iconPath + 'star_fill.png';
+  static String get petfood_outlined => iconPath + 'petfood_outlined.png';
 }

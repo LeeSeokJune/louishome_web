@@ -22,6 +22,7 @@ enum PageName {
   CURATION3(),
   CURATIONSTORE(),
   STARTER(),
+  PRODUCT(),
 
   // final double height;
   // const PageName(this.height);
@@ -43,6 +44,8 @@ double getHeight(int pageIndex) {
       return 1150;
     case PageName.STARTER:
       return 1500;
+    case PageName.PRODUCT:
+      return 2000;
   }
 }
 

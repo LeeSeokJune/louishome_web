@@ -5,6 +5,7 @@ import 'package:louishome_web/components/imagesPath.dart';
 import 'package:louishome_web/screens/curation/curation1_screen.dart';
 import 'package:louishome_web/screens/curation/curation2_screen.dart';
 import 'package:louishome_web/screens/curation/curationStore.dart';
+import 'package:louishome_web/screens/product/product_screen.dart';
 import 'package:louishome_web/screens/starter/starter_screen.dart';
 import '../controller/pages_controller.dart';
 import 'curation/curation3_screen.dart';
@@ -19,6 +20,7 @@ class BasicFrame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: ListView(
         children: [
           topbar(context),
@@ -35,6 +37,7 @@ class BasicFrame extends StatelessWidget {
                   Curation3Screen(),
                   CurationStore(),
                   StartScreen(),
+                  ProductScreen(),
                 ],
               ),
             ),
