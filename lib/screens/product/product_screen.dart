@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:louishome_web/components/constants.dart';
 import 'package:louishome_web/components/imagesPath.dart';
+import 'package:louishome_web/controller/product_controller.dart';
 import 'package:louishome_web/screens/product/components/product_order_info.dart';
 
 class ProductScreen extends StatelessWidget {
-  const ProductScreen({Key? key}) : super(key: key);
-
+  ProductScreen({Key? key}) : super(key: key);
+  var productController = Get.put(ProductController());
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -44,14 +46,6 @@ class ProductScreen extends StatelessWidget {
           SizedBox(height: 20),
           Container(width: centerWidth, height: 1, color: Colors.black),
           _nutientsInfo(),
-          SizedBox(height: 60),
-          Row(
-            children: [
-              Column(
-                children: [],
-              ),
-            ],
-          ),
         ],
       ),
     );
@@ -87,6 +81,48 @@ class ProductScreen extends StatelessWidget {
               _nutrientsTextInfo(
                 mainText: '피부, 피모 건강 개선',
                 subText: "알러지 확률이 낮은 '단일단백질'사료로 알러지의 위험을 낮췄어요",
+              ),
+            ],
+          ),
+          SizedBox(height: 60),
+          Row(
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset(IconPath.nutrient),
+                  SizedBox(height: 40),
+                  InkWell(
+                    child: Container(
+                      width: 580,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            '영양성분',
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                          Icon(
+                            productController.isNutrientsShow.value
+                                ? Icons.add
+                                : Icons.remove,
+                            size: 12,
+                          ),
+                        ],
+                      ),
+                    ),
+                    onTap: () {
+                      productController.setIsNutrientsShow();
+                    },
+                  ),
+                  SizedBox(height: 18),
+                  Container(
+                    width: 580,
+                    height: 1,
+                    color: Color.fromRGBO(240, 240, 240, 1),
+                  ),
+                ],
               ),
             ],
           ),
