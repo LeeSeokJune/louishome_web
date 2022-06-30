@@ -26,6 +26,10 @@ class ImagesPath {
   static get product_main => basicImagePath + 'product_main.png';
   static get bowl_petfood => basicImagePath + 'bowl_petfood.png';
   static get review_dog => basicImagePath + 'review_dog.png';
+  static String get starter_dog_main => basicImagePath + 'starter_dog_main.png';
+  static String get about_ziwi => basicImagePath + 'about_ziwi.jpeg';
+  static String get louis_check_point =>
+      basicImagePath + 'louis_check_point.png';
 }
 
 class IconPath {

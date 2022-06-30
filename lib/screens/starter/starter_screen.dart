@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:louishome_web/components/constants.dart';
 import 'package:louishome_web/components/imagesPath.dart';
+import 'package:louishome_web/controller/pages_controller.dart';
 
 class StartScreen extends StatelessWidget {
-  const StartScreen({Key? key}) : super(key: key);
-
+  StartScreen({Key? key}) : super(key: key);
+  var pagesController = Get.put(PagesController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: Container(
-          decoration: testLine,
           width: basicWidth,
           child: Column(
             children: [
@@ -71,56 +71,66 @@ class StartScreen extends StatelessWidget {
   Widget _selectPetType() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [_imageContainer(index: 0), _imageContainer(index: 1)],
+      children: [
+        _imageContainer(index: 0),
+        _imageContainer(index: 1),
+      ],
     );
   }
 
   Widget _imageContainer({index}) {
-    return Container(
-      width: 650,
-      height: 608,
-      child: Stack(
-        children: [
-          Positioned(
-            child: Image.asset(
-              index == 0 ? ImagesPath.puppy : ImagesPath.kitten,
-            ),
-          ),
-          Positioned(
-            left: 60,
-            top: 408,
-            child: Text(
-              index == 0 ? 'PUPPY' : 'KITTEN',
-              style: TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
+    return InkWell(
+      child: Container(
+        width: 650,
+        height: 608,
+        child: Stack(
+          children: [
+            Positioned(
+              child: Image.asset(
+                index == 0 ? ImagesPath.puppy : ImagesPath.kitten,
               ),
             ),
-          ),
-          Positioned(
-            left: 181,
-            top: 408,
-            child: Icon(
-              Icons.navigate_next,
-              size: 40,
-              color: Colors.black,
-            ),
-          ),
-          Positioned(
-            left: 60,
-            top: 495,
-            child: Text(
-              index == 0
-                  ? '강아지를 입양 후 어떤 제품들을 준비해야할 지,'
-                  : 't생활습관과 식습관이 시작되는 고양이 성장기,',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w400,
+            Positioned(
+              left: 60,
+              top: 408,
+              child: Text(
+                index == 0 ? 'PUPPY' : 'KITTEN',
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-          ),
-        ],
+            Positioned(
+              left: 181,
+              top: 408,
+              child: Icon(
+                Icons.navigate_next,
+                size: 40,
+                color: Colors.black,
+              ),
+            ),
+            Positioned(
+              left: 60,
+              top: 495,
+              child: Text(
+                index == 0
+                    ? '강아지를 입양 후 어떤 제품들을 준비해야할 지,'
+                    : 't생활습관과 식습관이 시작되는 고양이 성장기,',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
+      onTap: () {
+        if (index == 0) {
+          pagesController.changePage(PageName.STARTER_DOG.index);
+        }
+      },
     );
   }
 }

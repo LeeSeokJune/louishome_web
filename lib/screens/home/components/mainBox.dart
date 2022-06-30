@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:louishome_web/components/calWidth.dart';
 
 import '../../../components/constants.dart';
 import '../../../components/imagesPath.dart';
@@ -27,11 +28,7 @@ class MainBox extends StatelessWidget {
             ),
           ),
           Positioned(
-              right: context.width - basicWidth > 0
-                  ? 310
-                  : 310 - (basicWidth - context.width) / 2,
-              top: 180,
-              child: _pageController()),
+              right: calWidth(context), top: 180, child: _pageController()),
         ],
       ),
     );
