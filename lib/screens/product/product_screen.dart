@@ -3,7 +3,11 @@ import 'package:get/get.dart';
 import 'package:louishome_web/components/constants.dart';
 import 'package:louishome_web/components/imagesPath.dart';
 import 'package:louishome_web/controller/product_controller.dart';
+import 'package:louishome_web/screens/product/components/ComparisonSimilarProducts.dart';
+import 'package:louishome_web/screens/product/components/about_product.dart';
+import 'package:louishome_web/screens/product/components/exchange_refund_info_box.dart';
 import 'package:louishome_web/screens/product/components/product_order_info.dart';
+import 'package:louishome_web/screens/product/components/review.dart';
 
 class ProductScreen extends StatelessWidget {
   ProductScreen({Key? key}) : super(key: key);
@@ -17,8 +21,6 @@ class ProductScreen extends StatelessWidget {
           Container(
             width: centerWidth,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(width: 39),
                 ProductOrderInfo(),
@@ -27,127 +29,15 @@ class ProductScreen extends StatelessWidget {
           ),
           SizedBox(height: 100),
           _moveToProductDetail(index: 0),
-          _productInfoDetail(),
+          AboutProduct(),
+          SizedBox(height: 100),
+          ComparisonSimilarProducts(),
+          SizedBox(height: 100),
+          Review(),
+          SizedBox(height: 122),
+          ExchangeRefundInfoBox(),
         ],
       ),
-    );
-  }
-
-  Container _productInfoDetail() {
-    return Container(
-      width: centerWidth,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            '상품정보',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 20),
-          Container(width: centerWidth, height: 1, color: Colors.black),
-          _nutientsInfo(),
-        ],
-      ),
-    );
-  }
-
-  Padding _nutientsInfo() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(height: 40),
-          Image.asset(IconPath.petfood_outlined, width: 64, height: 64),
-          SizedBox(height: 42),
-          Container(
-            width: 1240,
-            height: 1,
-            color: Color.fromRGBO(238, 238, 238, 1),
-          ),
-          SizedBox(height: 22),
-          Row(
-            children: [
-              _nutrientsTextInfo(
-                mainText: '피부, 피모 건강 개선',
-                subText: 'EPA + DHA가 풍부한 자연산 청어가 선물하는 깨끗한 피부와 윤기나는 털',
-              ),
-              SizedBox(width: 186),
-              _nutrientsTextInfo(
-                mainText: '편안한 소화와 노화방지',
-                subText: '풍부한 비타민과 무기질은 강아지의 소화를 돕고 노화를 방지해요',
-              ),
-              SizedBox(width: 186),
-              _nutrientsTextInfo(
-                mainText: '피부, 피모 건강 개선',
-                subText: "알러지 확률이 낮은 '단일단백질'사료로 알러지의 위험을 낮췄어요",
-              ),
-            ],
-          ),
-          SizedBox(height: 60),
-          Row(
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Image.asset(IconPath.nutrient),
-                  SizedBox(height: 40),
-                  InkWell(
-                    child: Container(
-                      width: 580,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            '영양성분',
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
-                          Icon(
-                            productController.isNutrientsShow.value
-                                ? Icons.add
-                                : Icons.remove,
-                            size: 12,
-                          ),
-                        ],
-                      ),
-                    ),
-                    onTap: () {
-                      productController.setIsNutrientsShow();
-                    },
-                  ),
-                  SizedBox(height: 18),
-                  Container(
-                    width: 580,
-                    height: 1,
-                    color: Color.fromRGBO(240, 240, 240, 1),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Column _nutrientsTextInfo({mainText, subText}) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          mainText,
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: louisColor,
-          ),
-        ),
-        Container(
-          width: 247,
-          child: Text(subText),
-        ),
-      ],
     );
   }
 
@@ -228,7 +118,7 @@ class ProductScreen extends StatelessWidget {
               height: 432,
               child: Image.asset(ImagesPath.bowl_petfood),
             ),
-          )
+          ),
         ],
       ),
     );

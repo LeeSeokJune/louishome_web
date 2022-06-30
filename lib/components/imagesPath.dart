@@ -25,6 +25,7 @@ class ImagesPath {
       basicImagePath + 'discount_furniture.png';
   static get product_main => basicImagePath + 'product_main.png';
   static get bowl_petfood => basicImagePath + 'bowl_petfood.png';
+  static get review_dog => basicImagePath + 'review_dog.png';
 }
 
 class IconPath {
@@ -53,4 +54,5 @@ class IconPath {
   static String get petfood => iconPath + 'petfood.png';
   static String get star_fill => iconPath + 'star_fill.png';
   static String get petfood_outlined => iconPath + 'petfood_outlined.png';
+  static String get person => iconPath + 'person.png';
 }
