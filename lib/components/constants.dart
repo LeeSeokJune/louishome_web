@@ -25,6 +25,7 @@ enum PageName {
   STARTER_DOG(),
   STARTER_PRODUCT(),
   PRODUCT(),
+  Filtering(),
 
   // final double height;
   // const PageName(this.height);
@@ -52,6 +53,8 @@ double getHeight(int pageIndex) {
       return 2700;
     case PageName.PRODUCT:
       return 9400;
+    case PageName.Filtering:
+      return 3000;
   }
 }
 
