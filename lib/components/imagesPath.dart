@@ -30,6 +30,8 @@ class ImagesPath {
   static String get about_ziwi => basicImagePath + 'about_ziwi.jpeg';
   static String get louis_check_point =>
       basicImagePath + 'louis_check_point.png';
+  static String get starter_product_dog =>
+      basicImagePath + 'starter_product_dog.png';
 }
 
 class IconPath {
