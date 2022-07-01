@@ -47,7 +47,7 @@ double getHeight(int pageIndex) {
     case PageName.STARTER:
       return 1500;
     case PageName.STARTER_DOG:
-      return 4000;
+      return 3500;
     case PageName.STARTER_PRODUCT:
       return 2000;
     case PageName.PRODUCT:
