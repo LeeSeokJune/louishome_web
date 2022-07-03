@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:louishome_web/components/constants.dart';
 import 'package:louishome_web/components/imagesPath.dart';
+import 'package:louishome_web/components/verticalProductForm.dart';
 import 'package:louishome_web/controller/curation_controller.dart';
 import 'package:louishome_web/controller/curation_store_controller.dart';
 
@@ -191,119 +192,31 @@ class CurationStore extends StatelessWidget {
   Widget _showItem(int itemType) {
     return Stack(
       children: [
-        Positioned(left: 0, top: 178, child: _recommendItemBox()),
-        Positioned(left: 460, top: 178, child: _recommendItemBox()),
-      ],
-    );
-  }
-
-  Widget _recommendItemBox() {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _recommendImageContainer(),
-          _recommendBottomText(),
-        ],
-      ),
-    );
-  }
-
-  Widget _recommendImageContainer() {
-    return Container(
-      width: 440,
-      height: 512,
-      decoration: BoxDecoration(color: Color.fromRGBO(238, 238, 238, 1)),
-      child: Container(
-        child: Stack(
-          children: [
-            Positioned(left: 0, top: 0, child: _recommendTextContainer()),
-            Positioned(
-              left: 31,
-              top: 39,
-              child: Container(
-                width: 378,
-                height: 435,
-                child: Image.asset(
-                  'assets/images/petfood${curationStoreController.getPageNumber()}.png',
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _recommendTextContainer() {
-    return Container(
-      width: 93,
-      height: 34,
-      color: louisColor,
-      child: Center(
-        child: Text(
-          '루이스홈 추천',
-          style: TextStyle(
-            fontSize: 12,
-            fontWeight: FontWeight.w400,
-            color: Colors.white,
+        Positioned(
+          left: 0,
+          top: 178,
+          child: VerticalProductForm(
+            index: 0,
+            width: 440,
+            height: 512,
+            imageSize: 416,
+            shoppingCartButtonRadius: 34,
+            fontSize: 16,
+            showRecommendContainer: true,
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _recommendBottomText() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(height: 44),
-        Container(
-          height: 19,
-          child: Text(
-            '강아지',
-            style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
-                color: Color.fromRGBO(110, 110, 110, 1)),
+        Positioned(
+          left: 460,
+          top: 178,
+          child: VerticalProductForm(
+            index: 1,
+            width: 440,
+            height: 512,
+            imageSize: 416,
+            shoppingCartButtonRadius: 34,
+            fontSize: 16,
+            showRecommendContainer: true,
           ),
-        ),
-        SizedBox(height: 7),
-        Container(
-          height: 21,
-          child: Text(
-            '유기농 강아지 간식',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w400,
-            ),
-          ),
-        ),
-        SizedBox(height: 20),
-        Row(
-          children: [
-            Container(
-              height: 32,
-              child: Text(
-                '35,800원',
-                style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
-              ),
-            ),
-            SizedBox(width: 16),
-            Container(
-              height: 22,
-              child: Text(
-                '55,800원',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey,
-                  decoration: TextDecoration.lineThrough,
-                ),
-              ),
-            ),
-            SizedBox(width: 202),
-            _shoppingcartButton(radius: 34, size: 19),
-          ],
         ),
       ],
     );

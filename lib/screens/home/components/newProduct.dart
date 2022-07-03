@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:louishome_web/components/constants.dart';
-import 'package:louishome_web/components/imagesPath.dart';
+import '../../../components/verticalProductForm.dart';
 
 class NewProduct extends StatelessWidget {
   const NewProduct({Key? key}) : super(key: key);
@@ -33,85 +33,50 @@ class NewProduct extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _prdouctForm(index: 0),
-              _prdouctForm(index: 1),
-              _prdouctForm(index: 2),
-              _prdouctForm(index: 3),
+              VerticalProductForm(
+                index: 0,
+                width: 303,
+                height: 358,
+                imageSize: 303,
+                shoppingCartButtonRadius: 34,
+                fontSize: 14,
+                showRecommendContainer: true,
+                showShoppingCart: false,
+              ),
+              VerticalProductForm(
+                index: 1,
+                width: 303,
+                height: 358,
+                imageSize: 303,
+                shoppingCartButtonRadius: 34,
+                fontSize: 14,
+                showRecommendContainer: true,
+                showShoppingCart: false,
+              ),
+              VerticalProductForm(
+                index: 2,
+                width: 303,
+                height: 358,
+                imageSize: 303,
+                shoppingCartButtonRadius: 34,
+                fontSize: 14,
+                showRecommendContainer: true,
+                showShoppingCart: false,
+              ),
+              VerticalProductForm(
+                index: 3,
+                width: 303,
+                height: 358,
+                imageSize: 303,
+                shoppingCartButtonRadius: 34,
+                fontSize: 14,
+                showRecommendContainer: true,
+                showShoppingCart: false,
+              ),
             ],
           )
         ],
       ),
-    );
-  }
-
-  Widget _prdouctForm({index}) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          width: 303,
-          height: 358,
-          decoration: BoxDecoration(color: Color.fromRGBO(234, 234, 234, 1)),
-          child: Container(
-            height: 303,
-            child: Stack(
-              children: [
-                Positioned(
-                  left: 0,
-                  top: 28,
-                  child: Image.asset(
-                    'assets/images/petfood${index}.png',
-                    width: 303,
-                    height: 303,
-                  ),
-                ),
-                Positioned(
-                  left: 257,
-                  top: 16,
-                  child: Image.asset(
-                    IconPath.favorite,
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-        SizedBox(height: 13),
-        Text(
-          '강아지',
-          style: TextStyle(
-            fontSize: 16,
-            color: Colors.grey,
-          ),
-        ),
-        SizedBox(height: 8),
-        Text(
-          '유기농 강아지 건조 사료',
-          style: TextStyle(
-            fontSize: 16,
-          ),
-        ),
-        SizedBox(height: 10),
-        Row(
-          children: [
-            Text(
-              '55,800원',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey,
-                decoration: TextDecoration.lineThrough,
-              ),
-            ),
-            Text(
-              '35,800원',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        )
-      ],
     );
   }
 }

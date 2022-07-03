@@ -12,9 +12,11 @@ class VerticalProductForm extends StatelessWidget {
     required this.shoppingCartButtonRadius,
     required this.fontSize,
     this.showRecommendContainer = false,
+    this.showShoppingCart = true,
   }) : super(key: key);
   int index;
   bool showRecommendContainer;
+  bool showShoppingCart;
   double width;
   double height;
   double imageSize;
@@ -147,7 +149,8 @@ class VerticalProductForm extends StatelessWidget {
                   ),
                 ],
               ),
-              _shoppingcartButton(),
+              Visibility(
+                  visible: showShoppingCart, child: _shoppingcartButton()),
             ],
           ),
         ),
