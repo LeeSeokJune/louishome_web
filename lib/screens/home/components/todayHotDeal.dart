@@ -9,7 +9,6 @@ class TodayHotDeal extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: basicWidth,
-      height: 951,
       decoration: BoxDecoration(
         color: Color.fromRGBO(245, 245, 245, 1),
       ),

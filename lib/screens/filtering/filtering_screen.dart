@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:louishome_web/components/constants.dart';
+import 'package:louishome_web/components/verticalProductForm.dart';
 
 import '../../components/imagesPath.dart';
 
@@ -112,57 +113,13 @@ class FilteringScreen extends StatelessWidget {
                     SizedBox(height: 20),
                     Column(
                       children: [
-                        Row(
-                          children: [
-                            _singleItem(
-                                containerSize: 326, imageSize: 309, index: 0),
-                            SizedBox(width: 30),
-                            _singleItem(
-                                containerSize: 326, imageSize: 309, index: 1),
-                            SizedBox(width: 30),
-                            _singleItem(
-                                containerSize: 326, imageSize: 309, index: 2),
-                          ],
-                        ),
+                        _itemsRow(index: 0),
                         SizedBox(height: 63),
-                        Row(
-                          children: [
-                            _singleItem(
-                                containerSize: 326, imageSize: 309, index: 3),
-                            SizedBox(width: 30),
-                            _singleItem(
-                                containerSize: 326, imageSize: 309, index: 4),
-                            SizedBox(width: 30),
-                            _singleItem(
-                                containerSize: 326, imageSize: 309, index: 5),
-                          ],
-                        ),
+                        _itemsRow(index: 1),
                         SizedBox(height: 63),
-                        Row(
-                          children: [
-                            _singleItem(
-                                containerSize: 326, imageSize: 309, index: 0),
-                            SizedBox(width: 30),
-                            _singleItem(
-                                containerSize: 326, imageSize: 309, index: 0),
-                            SizedBox(width: 30),
-                            _singleItem(
-                                containerSize: 326, imageSize: 309, index: 0),
-                          ],
-                        ),
+                        _itemsRow(index: 2),
                         SizedBox(height: 63),
-                        Row(
-                          children: [
-                            _singleItem(
-                                containerSize: 326, imageSize: 309, index: 0),
-                            SizedBox(width: 30),
-                            _singleItem(
-                                containerSize: 326, imageSize: 309, index: 0),
-                            SizedBox(width: 30),
-                            _singleItem(
-                                containerSize: 326, imageSize: 309, index: 0),
-                          ],
-                        ),
+                        _itemsRow(index: 3),
                       ],
                     ),
                   ],
@@ -265,6 +222,42 @@ class FilteringScreen extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Row _itemsRow({index}) {
+    return Row(
+      children: [
+        Container(
+          child: VerticalProductForm(
+              index: index,
+              width: 326,
+              height: 326,
+              imageSize: 309,
+              shoppingCartButtonRadius: 34,
+              fontSize: 14),
+        ),
+        SizedBox(width: 30),
+        Container(
+          child: VerticalProductForm(
+              index: index + 1,
+              width: 326,
+              height: 326,
+              imageSize: 309,
+              shoppingCartButtonRadius: 34,
+              fontSize: 14),
+        ),
+        SizedBox(width: 30),
+        Container(
+          child: VerticalProductForm(
+              index: index + 2,
+              width: 326,
+              height: 326,
+              imageSize: 309,
+              shoppingCartButtonRadius: 34,
+              fontSize: 14),
+        ),
+      ],
     );
   }
 

@@ -149,11 +149,11 @@ class BasicFrame extends StatelessWidget {
                   },
                 )),
             Positioned(left: 1056, top: 13, child: _greyTextButton('NOTICE')),
-            Positioned(left: 1112, top: 22, child: _rod(0)),
+            Positioned(left: 1112, top: 14, child: _rod(0)),
             Positioned(left: 1125, top: 13, child: _greyTextButton('장바구니')),
-            Positioned(left: 1178, top: 22, child: _rod(0)),
+            Positioned(left: 1178, top: 14, child: _rod(0)),
             Positioned(left: 1191, top: 13, child: _greyTextButton('로그인')),
-            Positioned(left: 1234, top: 22, child: _rod(0)),
+            Positioned(left: 1234, top: 14, child: _rod(0)),
             Positioned(left: 1247, top: 13, child: _greyTextButton('회원가입')),
             _registerPoint(),
           ],
@@ -325,21 +325,20 @@ class BasicFrame extends StatelessWidget {
         if (text == TopCategoryName.STARTER.text) {
           print('asdf');
           pagesController.changePage(PageName.STARTER.index);
+        } else if (text == '전체카테고리') {
+          pagesController.changePage(PageName.Filtering.index);
         }
       },
     );
   }
 
   Widget _greyTextButton(String text) {
-    return TextButton(
-      child: Text(
-        text,
-        style: TextStyle(
-          color: Color.fromRGBO(112, 120, 129, 1),
-          fontSize: 10,
-        ),
+    return Text(
+      text,
+      style: TextStyle(
+        color: Color.fromRGBO(112, 120, 129, 1),
+        fontSize: 10,
       ),
-      onPressed: () {},
     );
   }
 

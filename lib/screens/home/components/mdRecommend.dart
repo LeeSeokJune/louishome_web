@@ -9,7 +9,6 @@ class MDRecommend extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: basicWidth,
-      height: 951,
       child: Row(
         children: [
           Stack(
