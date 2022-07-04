@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:louishome_web/components/constants.dart';
-import 'package:louishome_web/screens/home/components/snackContainer.dart';
+import 'package:louishome_web/components/snackContainer.dart';
 import 'package:louishome_web/screens/home/components/bestProduct.dart';
 import 'package:louishome_web/screens/home/components/dicountBelt.dart';
 import 'package:louishome_web/screens/home/components/louisShoppingBasket.dart';
