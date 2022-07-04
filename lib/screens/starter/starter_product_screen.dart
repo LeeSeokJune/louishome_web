@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:louishome_web/components/constants.dart';
 import 'package:louishome_web/components/imagesPath.dart';
+import 'package:louishome_web/components/verticalProductForm.dart';
 import 'package:louishome_web/screens/starter/components/starter_guide.dart';
 
 import 'components/starter_pageController.dart';
@@ -145,106 +146,76 @@ class StarterProductScreen extends StatelessWidget {
             child: Column(
               children: [
                 Row(children: [
-                  _singleItem(),
+                  VerticalProductForm(
+                      index: 0,
+                      width: 310,
+                      height: 310,
+                      imageSize: 292,
+                      shoppingCartButtonRadius: 28,
+                      fontSize: 14),
                   SizedBox(width: 20),
-                  _singleItem(),
+                  VerticalProductForm(
+                      index: 1,
+                      width: 310,
+                      height: 310,
+                      imageSize: 292,
+                      shoppingCartButtonRadius: 28,
+                      fontSize: 14),
                   SizedBox(width: 20),
-                  _singleItem(),
+                  VerticalProductForm(
+                      index: 2,
+                      width: 310,
+                      height: 310,
+                      imageSize: 292,
+                      shoppingCartButtonRadius: 28,
+                      fontSize: 14),
                   SizedBox(width: 20),
-                  _singleItem()
+                  VerticalProductForm(
+                      index: 3,
+                      width: 310,
+                      height: 310,
+                      imageSize: 292,
+                      shoppingCartButtonRadius: 28,
+                      fontSize: 14),
                 ]),
                 SizedBox(height: 80),
                 Row(children: [
-                  _singleItem(),
+                  VerticalProductForm(
+                      index: 0,
+                      width: 310,
+                      height: 310,
+                      imageSize: 292,
+                      shoppingCartButtonRadius: 28,
+                      fontSize: 14),
                   SizedBox(width: 20),
-                  _singleItem(),
+                  VerticalProductForm(
+                      index: 1,
+                      width: 310,
+                      height: 310,
+                      imageSize: 292,
+                      shoppingCartButtonRadius: 28,
+                      fontSize: 14),
                   SizedBox(width: 20),
-                  _singleItem(),
+                  VerticalProductForm(
+                      index: 2,
+                      width: 310,
+                      height: 310,
+                      imageSize: 292,
+                      shoppingCartButtonRadius: 28,
+                      fontSize: 14),
                   SizedBox(width: 20),
-                  _singleItem()
+                  VerticalProductForm(
+                      index: 3,
+                      width: 310,
+                      height: 310,
+                      imageSize: 292,
+                      shoppingCartButtonRadius: 28,
+                      fontSize: 14),
                 ]),
               ],
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _singleItem() {
-    return Container(
-      width: 310,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: 310,
-            height: 310,
-            decoration: BoxDecoration(
-              color: Color.fromRGBO(240, 240, 240, 1),
-            ),
-            child: Stack(
-              children: [
-                Image.asset(
-                  'assets/images/petfood0.png',
-                  width: 292,
-                  height: 292,
-                ),
-                Positioned(
-                  left: 272,
-                  top: 10,
-                  child: Icon(
-                    Icons.favorite_border_outlined,
-                    size: 28,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 45),
-          Text('강아지', style: TextStyle(color: Colors.grey)),
-          SizedBox(height: 8),
-          Text(
-            '유기농 강아지 건조 사료',
-            style: TextStyle(fontSize: 16),
-          ),
-          SizedBox(height: 15),
-          Row(
-            children: [
-              Text(
-                '35,800원',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(width: 10),
-              Text(
-                '55,800원',
-                style: TextStyle(
-                    fontSize: 16, decoration: TextDecoration.lineThrough),
-              ),
-              SizedBox(width: 104),
-              _shoppingcartButton(radius: 28, size: 16),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _shoppingcartButton({radius, size}) {
-    return Container(
-      width: radius,
-      height: radius,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(50),
-        border: Border.all(
-          color: Color.fromRGBO(221, 221, 221, 1),
-        ),
-      ),
-      child: Image.asset(
-        IconPath.shoppingcart,
-        width: size,
-        height: size,
       ),
     );
   }

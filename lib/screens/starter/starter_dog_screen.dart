@@ -65,16 +65,8 @@ class StarterDogScreen extends StatelessWidget {
       height: 2385,
       child: Stack(
         children: [
-          Positioned(
-            left: 80,
-            top: 0,
-            child: _greyBackgroundImage(),
-          ),
-          Positioned(
-            left: 700,
-            top: 300,
-            child: _bar(),
-          ),
+          Positioned(left: 80, top: 0, child: _greyBackgroundImage()),
+          Positioned(left: 700, top: 300, child: _bar()),
           Positioned(
             left: 960,
             top: 238,
@@ -123,11 +115,7 @@ class StarterDogScreen extends StatelessWidget {
             ),
           ),
           Positioned(left: 400, top: 2057, child: _bar()),
-          Positioned(
-            left: 700,
-            top: 1764,
-            child: _greyBackgroundImage(),
-          ),
+          Positioned(left: 700, top: 1764, child: _greyBackgroundImage()),
         ],
       ),
     );

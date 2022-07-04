@@ -26,6 +26,7 @@ enum PageName {
   STARTER_PRODUCT(),
   PRODUCT(),
   Filtering(),
+  HealthPlanningExhibition(),
 
   // final double height;
   // const PageName(this.height);
@@ -55,6 +56,8 @@ double getHeight(int pageIndex) {
       return 9400;
     case PageName.Filtering:
       return 3000;
+    case PageName.HealthPlanningExhibition:
+      return 2000;
   }
 }
 

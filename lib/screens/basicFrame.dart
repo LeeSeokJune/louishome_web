@@ -6,6 +6,7 @@ import 'package:louishome_web/screens/curation/curation1_screen.dart';
 import 'package:louishome_web/screens/curation/curation2_screen.dart';
 import 'package:louishome_web/screens/curation/curationStore.dart';
 import 'package:louishome_web/screens/filtering/filtering_screen.dart';
+import 'package:louishome_web/screens/healthPlanningExhibition/health_planning_exhibition_screen.dart';
 import 'package:louishome_web/screens/product/product_screen.dart';
 import 'package:louishome_web/screens/starter/starter_dog_screen.dart';
 import 'package:louishome_web/screens/starter/starter_product_screen.dart';
@@ -44,6 +45,7 @@ class BasicFrame extends StatelessWidget {
                   StarterProductScreen(),
                   ProductScreen(),
                   FilteringScreen(),
+                  HealthPlanningExhibitionScreen(),
                 ],
               ),
             ),
