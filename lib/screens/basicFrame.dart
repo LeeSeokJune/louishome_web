@@ -329,6 +329,8 @@ class BasicFrame extends StatelessWidget {
           pagesController.changePage(PageName.STARTER.index);
         } else if (text == '전체카테고리') {
           pagesController.changePage(PageName.Filtering.index);
+        } else if (text == TopCategoryName.HEALTH.text) {
+          pagesController.changePage(PageName.HealthPlanningExhibition.index);
         }
       },
     );

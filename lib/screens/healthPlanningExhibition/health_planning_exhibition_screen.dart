@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:louishome_web/components/constants.dart';
 import 'package:louishome_web/components/snackContainer.dart';
@@ -161,8 +160,8 @@ class HealthPlanningExhibitionScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipRRect(
-            child: CachedNetworkImage(
-              imageUrl: 'https://picsum.photos/id/${index}/270/200',
+            child: Image.network(
+              'https://picsum.photos/id/${index}/270/200',
             ),
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(15), topRight: Radius.circular(15)),
